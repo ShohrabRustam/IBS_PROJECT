@@ -28,7 +28,7 @@ Route::get('/signUp',function(){
 return view('signup');
 });
 
-Route::post('/signup',[UserController::class,'signUp']);
+Route::post('/signUp',[UserController::class,'sigup']);
 
 Route::get('/login',function(){
 return view ('login');

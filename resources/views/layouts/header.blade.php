@@ -109,11 +109,11 @@
                     </ul>
                 </li>
                 <li><a href="contact">Contact</a></li>
-                @if (Session::has('user'))
+                {{-- @if (Session::has('user'))
                     <li><a href="#">Your Policies</a></li>
-                @endif
+                @endif --}}
 
-                @if (!Session::has('user'))
+                {{-- @if (!Session::has('user')) --}}
                     <li class="dropdown">
                         <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="true" style="color: Blue">
@@ -128,19 +128,19 @@
                             {{-- <div class="dropdown-divider"></div> --}}
                         </ul>
                     </li>
-                @else
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                {{-- @else --}}
+                    {{-- <li class="dropdown"> --}}
+                        {{-- <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="true" style="color: Blue">
                             {{ Session::get('user')['name'] }}
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        </a> --}}
+                        {{-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> --}}
 
-                                <li><a class="dropdown-item" href="logout">Log Out</a></li>
+                                {{-- <li><a class="dropdown-item" href="logout">Log Out</a></li> --}}
                             {{-- <div class="dropdown-divider"></div> --}}
-                        </ul>
-                    </li>
-                @endif
+                        {{-- </ul> --}}
+                    {{-- </li> --}}
+                {{-- @endif --}}
             </ul>
         </div>
     </nav>
