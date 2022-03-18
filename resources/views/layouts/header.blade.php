@@ -123,7 +123,7 @@
                             <li><a class="dropdown-item" href="{{ URL::to('/login') }}">Login</a></li>
 
                             {{-- <div class="dropdown-divider"></div> --}}
-                            <li> <a class="dropdown-item" href="{{ URL::to('/signUp') }}">Signup </a></li>
+                            <li> <a class="dropdown-item" href="{{ URL::to('signUP') }}">Signup </a></li>
 
                             {{-- <div class="dropdown-divider"></div> --}}
                         </ul>

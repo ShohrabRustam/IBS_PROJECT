@@ -17,7 +17,7 @@ Registration
 @include('style');
 <div class="login-box">
     <h2>Registration</h2>
-    <form action="/signUp" method="POST">
+    <form action="signUp" method="POST">
         @csrf
       <div class="user-box">
         <input name="name" type="text"  value="{{ old('name') }}" required >

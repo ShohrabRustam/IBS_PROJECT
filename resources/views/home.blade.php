@@ -19,9 +19,9 @@
                         </div>
                     </td>
                     <td>
-                        <div class="hero-img-container">
+                        <div class="hero-img-container" style="opacity: 0.8">
                             <img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY73KVR4_cWOoY4_UUodQsSj95lWkPg1gfhQ&usqp=CAU">
+                                src="https://media.istockphoto.com/photos/paper-cut-of-insurance-concept-on-green-grass-background-car-life-picture-id1178261521?k=20&m=1178261521&s=612x612&w=0&h=rSWONUxXu-ggAP_rlx_AEjH8OdwRGLw1NR2yzr9Ewz8=">
                         </div>
                     </td>
                 </tr>

@@ -18,7 +18,7 @@ Login
 
 @include('style');
 <div class="login-box">
-    <form action="login" method="POST">
+    <form action="{{ URL::to('/login') }}" method="POST">
         @csrf
       <div class="user-box">
         <input name="email" type="email"  value="{{ old('email') }}" required>
