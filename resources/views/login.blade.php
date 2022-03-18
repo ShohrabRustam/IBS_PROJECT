@@ -18,7 +18,6 @@ Login
 
 @include('style');
 <div class="login-box">
-    <h2>Login</h2>
     <form action="login" method="POST">
         @csrf
       <div class="user-box">

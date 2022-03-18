@@ -22,3 +22,11 @@ Route::get('/about',function(){
 Route::get('/contact',function(){
     return view ('contact');
 });
+
+Route::get('/login',function(){
+return view ('login');
+});
+
+Route::get('/signUp',function(){
+return view('signup');
+});

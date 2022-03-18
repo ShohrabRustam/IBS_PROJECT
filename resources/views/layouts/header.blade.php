@@ -120,10 +120,10 @@
                             Login/SignUp </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                            <li><a class="dropdown-item" href="login">Login</a></li>
+                            <li><a class="dropdown-item" href="{{ URL::to('/login') }}">Login</a></li>
 
                             {{-- <div class="dropdown-divider"></div> --}}
-                            <li> <a class="dropdown-item" href="registration">Signup </a></li>
+                            <li> <a class="dropdown-item" href="{{ URL::to('/signUp') }}">Signup </a></li>
 
                             {{-- <div class="dropdown-divider"></div> --}}
                         </ul>
