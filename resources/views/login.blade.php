@@ -17,11 +17,23 @@
 
     @include('style');
     <div class="login-box">
+        @if ($message = Session::get('email'))
+            <div class="alter alter-danger alter-block">
+                <button type="button" class="close" data-dismiss="alter">x</button>
+                <strong style="color: red">{{ $message }}</strong>
+            </div>
+        @endif
+        @if ($message = Session::get('password'))
+            <div class="alter alter-danger alter-block">
+                <button type="button" class="close" data-dismiss="alter">x</button>
+                <strong style="color: red">{{ $message }}</strong>
+            </div>
+        @endif
         <form action="{{ URL::to('/login') }}" method="POST">
             @csrf
             <div class="conatainer" style="height: 30px; opacity:0.7; font-weight:bold;">
                 <span class="alert-danger">
-                    @error('name')
+                    @error('email')
                         {{ $message }}
                     @enderror
                 </span>
@@ -33,7 +45,7 @@
             </div>
             <div class="conatainer" style="height: 30px; opacity:0.7; font-weight:bold;">
                 <span class="alert-danger">
-                    @error('email')
+                    @error('password')
                         {{ $message }}
                     @enderror
                 </span>
@@ -43,7 +55,8 @@
                 <label>Password</label>
             </div>
             <span class="forgot-password">
-                <a href="#" title="Forgot Password" id="link-reset" style=" height: 35px;    margin-top: 10px;    ">Forgot Password?</a>
+                <a href="#" title="Forgot Password" id="link-reset" style=" height: 35px;    margin-top: 10px;    ">Forgot
+                    Password?</a>
             </span>
 
             <a href="#" type="submit">
