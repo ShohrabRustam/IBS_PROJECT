@@ -14,7 +14,7 @@ class UserController extends Controller
         $request->validate([
             "name" => "required|min:3",
             "email"=>"required|email|unique:UserRegistration",
-            "password" => "required|alphaNum|min:6|max:16",
+            "password" => "required|min:6|max:16",
             "confirm_password" => "required_with:password|same:password|min:6"
         ]);
         $table = new UserRegistration();
@@ -32,7 +32,7 @@ class UserController extends Controller
         $request->validate([
             // "email"=>"required|email|unique:UserRegistration",
             "email"=>"required|email",
-            "password" => "required|alphaNum|min:6|max:16",
+            "password" => "required|min:6|max:16",
         ]);
         // if(!$user ($user->password!=$request->password)){
         //     return back()->with('error','Email or Password is Incorrect');
