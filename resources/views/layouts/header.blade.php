@@ -101,10 +101,10 @@
                         Insurance Type
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="LifeInsurance"> Life Insurance </a></li>
-                        <li> <a class="dropdown-item" href="HealthInsurance">Health Insurance</a></li>
-                        <li> <a class="dropdown-item" href="CarInsurance"> Car Insurance </a> </li>
-                        <li> <a class="dropdown-item" href="BikeInsurance"> Bike Insurance </a></li>
+                        <li><a class="dropdown-item" href="{{ URL::to('LifeInsurance') }}"> Life Insurance </a></li>
+                        <li> <a class="dropdown-item" href="{{ URL::to('HealthInsurance') }}">Health Insurance</a></li>
+                        <li> <a class="dropdown-item" href="{{ URL::to('CarInsurance') }}"> Car Insurance </a> </li>
+                        <li> <a class="dropdown-item" href="{{ URL::to('BikeInsurance') }}"> Bike Insurance </a></li>
                         <li> <a class="dropdown-item" href="#">More Insurance Blog</a> </li>
                     </ul>
                 </li>
