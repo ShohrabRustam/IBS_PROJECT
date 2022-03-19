@@ -23,6 +23,6 @@ class UserController extends Controller
         $table->password=$request->password;
         $table->save();
         // return url()->previous()->with('success', 'Thank you for your registration ! Go to login for login.');
-        return $request;
+        return redirect('/login');
     }
 }
