@@ -50,9 +50,9 @@
       position: absolute;
       top:0;
       left: 0;
-      padding: 10px 0;
+      padding: 5px 0;
       font-size: 16px;
-      color: #fff;
+      color: rgb(240, 16, 173);
       pointer-events: none;
       transition: .5s;
     }
