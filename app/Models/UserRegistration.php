@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class UserRegistration extends Model
 {
     use HasFactory;
-    public $table = 'user_registrations';
+    public $table = 'UserRegistration';
 
 }

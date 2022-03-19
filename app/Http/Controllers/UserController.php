@@ -13,10 +13,15 @@ class UserController extends Controller
     {
         $request->validate([
             "name" => "required|min:3",
-            "email"=>"required|email|unique:user_registration",
+            "email"=>"required|email|unique:UserRegistration",
             "password" => "required|min:6|max:16",
             "confirm_password" => "required_with:password|same:password|min:6"
         ]);
+        $table = new UserRegistration();
+        $table->name=$request->name;
+        $table->email= $request->email;
+        $table->password=$request->password;
+        $table->save();
         return $request;
     }
 }

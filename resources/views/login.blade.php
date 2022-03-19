@@ -37,7 +37,7 @@ Login
         <span></span>
         <input type="submit" value="login" class="btn btn-success" style="width:100px; height:50px">
       </a>
-      <div class="signup-link">Not a member? <a href="registration">Signup now</a></div>
+      <div class="signup-link">Not a member? <a href="{{ URL::to('signUp') }}">Signup now</a></div>
 
     </form>
   </div>
