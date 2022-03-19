@@ -28,8 +28,10 @@ Route::get('/signUp',function(){
 return view('signup');
 });
 
-Route::post('/signUp',[UserController::class,'sigup']);
+Route::post('/signUp',[UserController::class,'sigup'])->name('signUp');
 
 Route::get('/login',function(){
 return view ('login');
 });
+
+Route::post('/login',[UserController::class,'userlogin'])->name('login');
