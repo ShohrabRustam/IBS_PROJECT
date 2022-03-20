@@ -1,10 +1,10 @@
 @extends('Admin.master')
 @section('title')
-Home
+Admin Home
 @endsection
 
 @section('section')
 
-<h5>This is Admin Home</h5>
+<h1>This is Admin Home</h1>
 
 @endsection

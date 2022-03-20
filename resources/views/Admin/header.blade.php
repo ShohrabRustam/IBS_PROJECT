@@ -11,6 +11,7 @@
     li {
         float: left;
         text-align: center;
+        font-weight: bold;
     }
 
     li a {
