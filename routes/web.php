@@ -122,5 +122,9 @@ Route::get('/adminlogout', [AdminController::class,'adminlogout']);
 #################################################################################################################################################################
 #@Company Pages Route
 ##################################################################################################################################################################
-
 Route::get('/company',[CompanyController::class,'company']);
+
+Route::get('/companyregistration',function(){
+    return view('Company.companyRegistration');
+});
+

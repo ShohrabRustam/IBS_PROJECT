@@ -8,8 +8,9 @@ Company
 //     var_dump($data);
 //     die;
 ?>
+<h1>Company</h1>
 <div class="container center">
-<a href="companyregistration" class="btn btn-primary center" style="margin-bottom: 20px; margin-top:20px">Add Company</a>
+<a href="{{ URL('/companyregistration') }}" class="btn btn-primary center" style="margin-bottom: 20px; margin-top:20px">Add Company</a>
 <table class="table">
     {{-- <thead>
         <tr>
@@ -21,7 +22,7 @@ Company
         </tr>
     </thead> --}}
     <tbody>
-        @foreach ($data as $item)
+        {{-- @foreach ($data as $item)
         <tr style="margin-bottom: 20px">
             <td scope="row"><img src="{{ $item['logo'] }}" class="img-fluid|thumbnail rounded-top|rounded-end|rounded-bottom|rounded-start|rounded-circle|" alt="image" style="height: 30px; width:70px"></td>
             <td>{{ $item['register_number'] }}</td>
@@ -32,7 +33,7 @@ Company
             <td><a href="editpolicy/{{ $item['id'] }}"><button class="btn btn-primary"> Edit Company Details</button></a> </td>
             <td><a href="policydelete/{{ $item['id'] }}"><button class="btn btn-danger"> Delete Company</button></a></td>
         </tr>
-        @endforeach
+        @endforeach --}}
     </tbody>
 </table>
 </div>

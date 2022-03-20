@@ -24,4 +24,8 @@ class CompanyController extends Controller
         }
         return redirect('adminlogin');
     }
+
+
+
+
 }
