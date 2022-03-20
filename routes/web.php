@@ -4,6 +4,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompanyController;
+use App\Models\Company;
 use Illuminate\Support\Facades\Session;
 
 
@@ -129,3 +130,10 @@ Route::get('/companyregistration',function(){
 });
 
 Route::post('/companyregistration',[CompanyController::class,'companyRegistration']);
+
+
+Route::get('policyRegistration/{id?}',function($id){
+    $companyid =Company::find($id);
+
+    return view('Company.policyRegistration')->with('companyid',$companyid);
+});

@@ -29,7 +29,7 @@ Company
             <td>{{ $item['name'] }}</td>
             <td>{{ $item['about'] }}</td>
             <td><a href="viewpolicy/{{ $item['id'] }}"><button class="btn btn-info">  View  Policies </button></a></td>
-            <td> <a href="policyregistration/{{ $item['id'] }}"><button class="btn btn-info">  Add Policy</button></a></td>
+            <td> <a href="policyRegistration/{{ $item['id'] }}"><button class="btn btn-info">  Add Policy</button></a></td>
             <td><a href="editpolicy/{{ $item['id'] }}"><button class="btn btn-primary"> Edit Company Details</button></a> </td>
             <td><a href="policydelete/{{ $item['id'] }}"><button class="btn btn-danger"> Delete Company</button></a></td>
         </tr>
