@@ -3,6 +3,7 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Session;
 
 
@@ -102,12 +103,7 @@ Route::get('/insurancerequest', [AdminController::class,'insurancerequest']);
 Route::get('/claimrequest', [AdminController::class, 'claimrequest']);
 
 
-Route::post('/companyregistration',[AdminController::class,'companyregistration']);
 
-######################################################################################################################################################################
-#admin login pages
-######################################################################################################################################################################
-//admin login page
 Route::get('/adminlogin', function () {
     if (Session::has('user') && strpos(Session::get('user')['email'], '@ibs.com')==true ){
         return redirect('/adminhome');
@@ -121,3 +117,10 @@ Route::post('/adminlogin', [AdminController::class, 'adminlogin']);
 //admin logout
 Route::get('/adminlogout', [AdminController::class,'adminlogout']);
 
+#################################################################################################################################################################
+//@auther Rustam
+#################################################################################################################################################################
+#@Company Pages Route
+##################################################################################################################################################################
+
+Route::get('/company',[CompanyController::class,'company']);
