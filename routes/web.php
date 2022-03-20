@@ -128,3 +128,4 @@ Route::get('/companyregistration',function(){
     return view('Company.companyRegistration');
 });
 
+Route::post('/companyregistration',[CompanyController::class,'companyRegistration']);

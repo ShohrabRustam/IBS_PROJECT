@@ -28,7 +28,7 @@ Company Registration
 
     </div>
     <div class="user-box">
-        <input name="logo" type="text" required>
+        <input name="logo" type="text" >
         <label>Link for logo</label>
 
     </div>
