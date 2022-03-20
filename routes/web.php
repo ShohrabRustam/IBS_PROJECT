@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -69,4 +71,48 @@ Route::post('/login',[UserController::class,'userlogin'])->name('login');
 Route::get('logout', [UserController::class, 'logout']);
 
 
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|@auther Rustam
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+#################################################################################################################################################################
+//@auther Rustam
+#################################################################################################################################################################
+#@Admin Pages Route
+##################################################################################################################################################################
+
+//admin home page
+Route::get('/adminhome', [AdminController::class, 'adminhome']);
+
+// admin insurancerequest
+Route::get('/insurancerequest', [AdminController::class,'insurancerequest']);
+
+// admin claimrequest page
+Route::get('/claimrequest', [AdminController::class, 'claimrequest']);
+
+
+Route::post('/companyregistration',[AdminController::class,'companyregistration']);
+
+######################################################################################################################################################################
+#admin login pages
+######################################################################################################################################################################
+//admin login page
+Route::get('/adminlogin', function () {
+    return view('Admin.adminlogin');
+});
+
+// login by admin
+Route::post('/adminlogin', [AdminController::class, 'adminlogin']);
+
+//admin logout
+Route::get('/adminlogout', [AdminController::class,'adminlogout']);
 
