@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompanyController;
 use App\Models\Company;
 use Illuminate\Support\Facades\Session;
+use App\Models\policy;
 
 
 
@@ -132,10 +133,17 @@ Route::get('/companyregistration',function(){
 Route::post('/companyregistration',[CompanyController::class,'companyRegistration']);
 
 
-Route::get('policyRegistration/{id?}',function($id){
+Route::get('/policyregistration/{id}',function($id){
     $companyid =Company::find($id);
 
     return view('Company.policyRegistration')->with('companyid',$companyid);
 });
 
-Route::post('/policyRegistration',[CompanyController::class,'addPolicy']);
+Route::post('/policyregistration',[CompanyController::class,'addPolicy']);
+
+Route::get('/viewpolicy/{id}',function($id){
+    $company =  Company::where("id",$id)->first();
+    $policy =   policy::all();
+    return view('Company.viewpolicy')->with('company',$company)->with('policies',$policy);
+
+});
