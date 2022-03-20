@@ -13,51 +13,57 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// home page
 Route::get('/', function () {
     return view('home');
 });
+
+// about page
 Route::get('/about',function(){
     return view('about');
 });
+
+// contact page
 Route::get('/contact',function(){
     return view ('contact');
 });
 
+// Health Insurance Page
+Route::get('HealthInsurance',function(){
+    return view('InsuranceType.health');
+});
+
+// Life Insurance Page
+Route::get('LifeInsurance',function(){
+    return view('InsuranceType.life');
+});
+
+// Bike Insurance Page
+Route::get('BikeInsurance',function(){
+    return view('InsuranceType.bike');
+});
+
+// Car Insurance Page
+Route::get('CarInsurance',function(){
+    return view('InsuranceType.car');
+});
+
+// SignUp Page
 Route::get('/signUp',function(){
 return view('signup');
 });
 
+// login Page
 Route::post('/signUp',[UserController::class,'sigup'])->name('signUp');
 
 Route::get('/login',function(){
 return view ('login');
 });
 
-Route::get('HealthInsurance',function(){
-    return view('InsuranceType.health');
-});
-
-Route::get('LifeInsurance',function(){
-    return view('InsuranceType.life');
-});
-
-Route::get('BikeInsurance',function(){
-    return view('InsuranceType.bike');
-});
-Route::get('CarInsurance',function(){
-    return view('InsuranceType.car');
-});
-
 Route::post('/login',[UserController::class,'userlogin'])->name('login');
 
-// Route::get('HealthInsurance', [UserController::class, 'HealthInsurance']);
+// Logout Page
+Route::get('logout', [UserController::class, 'logout']);
 
-// //Life Insurance Page
-// Route::get('LifeInsurance', [UserController::class, 'LifeInsurance']);
 
-// //Bike Insurance Page
-// Route::get('BikeInsurance', [UserController::class, 'BikeInsurance']);
 
-// //Car Insurance
-// Route::get('CarInsurance', [UserController::class, 'CarInsurance']);

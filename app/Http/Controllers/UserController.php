@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\UserRegistration;
+use Illuminate\Support\Facades\Session;
+
 
 class UserController extends Controller
 {
@@ -54,7 +56,14 @@ class UserController extends Controller
             return back()->with('password','Password is incorrect');
         }
         else{
+            $request->session()->put('user',$user);
             return redirect('/' );
         }
+
+    }
+    public function logout()
+    {
+        Session::forget('user');
+        return redirect('login');
     }
 }

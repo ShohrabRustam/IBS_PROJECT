@@ -89,10 +89,10 @@
                         <span style="color: #dd0b39">m </span><strong class="text-primary">Brockerage</strong>
                     </a>
                 </li>
-                @if (Session::has('user'))
+                {{-- @if (Session::has('user'))
                     <li><a href="#"><strong class="text-info">Welcome </strong> <strong
                                 class="text-primary">{{ Session::get('user')['name'] }}</strong> </a></li>
-                @endif
+                @endif --}}
                 <li> <a href="{{ url('/') }}">Home </a></li>
                 <li> <a href="{{ URL::to('/about') }}">About</a></li>
                 <li class="dropdown">
@@ -109,11 +109,11 @@
                     </ul>
                 </li>
                 <li><a href="contact">Contact</a></li>
-                {{-- @if (Session::has('user'))
+                @if (Session::has('user'))
                     <li><a href="#">Your Policies</a></li>
-                @endif --}}
+                @endif
 
-                {{-- @if (!Session::has('user')) --}}
+                @if (!Session::has('user'))
                     <li class="dropdown">
                         <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="true" style="color: Blue">
@@ -128,19 +128,19 @@
                             {{-- <div class="dropdown-divider"></div> --}}
                         </ul>
                     </li>
-                {{-- @else --}}
-                    {{-- <li class="dropdown"> --}}
-                        {{-- <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                @else
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="true" style="color: Blue">
                             {{ Session::get('user')['name'] }}
-                        </a> --}}
-                        {{-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton"> --}}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                {{-- <li><a class="dropdown-item" href="logout">Log Out</a></li> --}}
-                            {{-- <div class="dropdown-divider"></div> --}}
-                        {{-- </ul> --}}
-                    {{-- </li> --}}
-                {{-- @endif --}}
+                                <li><a class="dropdown-item" href="logout">Log Out</a></li>
+                            <div class="dropdown-divider"></div>
+                        </ul>
+                    </li>
+                @endif
             </ul>
         </div>
     </nav>
