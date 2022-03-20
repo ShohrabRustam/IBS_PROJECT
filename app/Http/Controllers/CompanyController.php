@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 
 use App\Models\Company;
+use App\Models\policy;
 use Illuminate\Http\Request;
 use App\Models\PolicyRegistration;
 
@@ -38,7 +39,19 @@ class CompanyController extends Controller
         return redirect('/company');
     }
 
+    public function addPolicy(Request $request){
+        $policy = new policy();
+        $policy->companyid=$request->companyid;
+        $policy->policyname=$request->policyname;
+        $policy->policytype=$request->policytype;
+        $policy->policydesc=$request->policydesc;
+        $policy->policyprice=$request->policyprice;
+        $policy->claimprice=$request->claimprice;
+        $policy->timeperiod=$request->timeperiod;
+        $policy->save();
+        return redirect('company');
 
+    }
 
 
 }

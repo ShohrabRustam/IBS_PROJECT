@@ -137,3 +137,5 @@ Route::get('policyRegistration/{id?}',function($id){
 
     return view('Company.policyRegistration')->with('companyid',$companyid);
 });
+
+Route::post('/policyRegistration',[CompanyController::class,'addPolicy']);
