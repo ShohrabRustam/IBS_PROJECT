@@ -103,10 +103,9 @@
                         {{ Session::get('user')['name'] }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="{{ URL::to('/adminlogout') }}">
-                            <li>Log Out</li>
-                        </a>
-                        {{-- <div class="dropdown-divider"></div> --}}
+                        <li> <a class="dropdown-item" href="{{ URL::to('/adminlogout') }}">
+                            Log Out
+                        </a></li>
                     </ul>
                 </li>
             @endif

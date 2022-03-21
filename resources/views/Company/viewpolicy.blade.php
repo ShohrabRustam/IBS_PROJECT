@@ -33,8 +33,11 @@ Policy
             <td>{{ $item['policyprice'] }}</td>
             <td>{{ $item['claimprice'] }}</td>
             <td>{{ $item['timeperiod'] }}</td>
-            <td><a href="editpolicy/{{ $item['id'] }}"><button class="btn btn-primary"> Edit Policy Details</button></a> </td>
-            <td><a href="policydelete/{{ $item['id'] }}"><button class="btn btn-danger"> Delete Policy</button></a></td>
+            <td><a href="#"><button class="btn btn-primary"> Edit Policy Details</button></a> </td>
+            <td><a href="#"><button class="btn btn-danger"> Delete Policy</button></a></td>
+{{--
+            <td><a href="editpolicy/{{ $company['id'] }}/{{ $item['id'] }}"><button class="btn btn-primary"> Edit Policy Details</button></a> </td>
+            <td><a href="policydelete/{{ $company['id'] }}/{{ $item['id'] }}"><button class="btn btn-danger"> Delete Policy</button></a></td> --}}
         </tr>
         @endif
         @endforeach
