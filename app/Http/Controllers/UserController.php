@@ -34,23 +34,35 @@ class UserController extends Controller
 
     public function  life()
     {
+        if (Session::has('user') ) {
+
         $data = policy::all();
 
         return view('InsuranceType.life')->with('data',$data);
+        }
+        return redirect('/login');
 
     }
     public function  bike()
     {
+        if (Session::has('user') ) {
+
         $data = policy::all();
 
         return view('InsuranceType.bike');
+        }
+        return redirect('login');
 
     }
     public function  car()
     {
+        if (Session::has('user')) {
+
         $data = policy::all();
 
         return view('InsuranceType.car');
+        }
+        return redirect('/login');
     }
     public function  signup()
     {
