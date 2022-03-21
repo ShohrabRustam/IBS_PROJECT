@@ -24,59 +24,32 @@ use App\Models\policy;
 
 
 // home page
-Route::get('/', function () {
-    return view('home');
-});
-
+Route::get('/', [UserController::class,'home']);
 // about page
-Route::get('/about',function(){
-    return view('about');
-});
+Route::get('/about',[UserController::class,'about']);
 
 // contact page
-Route::get('/contact',function(){
-    return view ('contact');
-});
+Route::get('/contact',[UserController::class,'contact']);
 
-// Health Insurance Page
-Route::get('HealthInsurance',function(){
-    return view('InsuranceType.health');
-});
 
-// Life Insurance Page
-Route::get('LifeInsurance',function(){
-    return view('InsuranceType.life');
-});
+Route::get('/HealthInsurance',[UserController::class,'health']);
 
-// Bike Insurance Page
-Route::get('BikeInsurance',function(){
-    return view('InsuranceType.bike');
-});
+Route::get('/LifeInsurance',[UserController::class,'life']);
 
-// Car Insurance Page
-Route::get('CarInsurance',function(){
-    return view('InsuranceType.car');
-});
+Route::get('/BikeInsurance',[UserController::class,'bike']);
 
-// SignUp Page
-Route::get('/signUp',function(){
-return view('signup');
-});
+Route::get('/CarInsurance',[UserController::class,'car']);
 
-// login Page
+Route::get('/signUp',[UserController::class,'signup']);
+// Signup Page
 Route::post('/signUp',[UserController::class,'sigup'])->name('signUp');
 
-Route::get('/login',function(){
-return view ('login');
-});
+Route::get('/login',[UserController::class,'login']);
 
 Route::post('/login',[UserController::class,'userlogin'])->name('login');
 
 // Logout Page
 Route::get('logout', [UserController::class, 'logout']);
-
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -104,14 +77,8 @@ Route::get('/insurancerequest', [AdminController::class,'insurancerequest']);
 // admin claimrequest page
 Route::get('/claimrequest', [AdminController::class, 'claimrequest']);
 
+Route::get('/adminlogin', [AdminController::class, 'adminlog']);
 
-
-Route::get('/adminlogin', function () {
-    if (Session::has('user') && strpos(Session::get('user')['email'], '@ibs.com')==true ){
-        return redirect('/adminhome');
-    }
-    return view('Admin.adminlogin');
-});
 
 // login by admin
 Route::post('/adminlogin', [AdminController::class, 'adminlogin']);
@@ -124,26 +91,25 @@ Route::get('/adminlogout', [AdminController::class,'adminlogout']);
 #################################################################################################################################################################
 #@Company Pages Route
 ##################################################################################################################################################################
+// company page
 Route::get('/company',[CompanyController::class,'company']);
 
-Route::get('/companyregistration',function(){
-    return view('Company.companyRegistration');
-});
+// company registratyion page
+Route::get('/companyregistration',[CompanyController::class,'companyreg']);
 
+// company registration
 Route::post('/companyregistration',[CompanyController::class,'companyRegistration']);
 
 
-Route::get('/policyregistration/{id}',function($id){
-    $companyid =Company::find($id);
+// Route::get('/policyregistration/{id}',function($id){
+//     $companyid =Company::find($id);
 
-    return view('Company.policyRegistration')->with('companyid',$companyid);
-});
+//     return view('Company.policyRegistration')->with('companyid',$companyid);
+// });
+
+Route::get('/policyregistration/{id}',[CompanyController::class,'policyReg']);
 
 Route::post('/policyregistration',[CompanyController::class,'addPolicy']);
 
-Route::get('/viewpolicy/{id}',function($id){
-    $company =  Company::where("id",$id)->first();
-    $policy =   policy::all();
-    return view('Company.viewpolicy')->with('company',$company)->with('policies',$policy);
+Route::get('//viewpolicy/{id}',[CompanyController::class,'viewpolicy']);
 
-});

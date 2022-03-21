@@ -34,53 +34,14 @@ class AdminController extends Controller
         return redirect('adminlogin');
     }
 
-    public function company()
-    {
-        // $users = DB::table('registerationcompany')->get();
-        // $data = registrationcompany::all();
-        // echo "<pre>";
-        // var_dump($data);
 
 
-        // if (Session::has('user') && strpos(Session::get('user')['name'], 'admin')!==false )
-        // {
-        //     return view('company.company')->with('data',$data);
-        // }
-        // return redirect('adminlogin');
+    public function adminlog(){
+        if (Session::has('user') && strpos(Session::get('user')['email'], '@ibs.com')==true ){
+            return redirect('/adminhome');
+        }
+        return view('Admin.adminlogin');
     }
-
-    public function companyregistration(Request $request)
-    {
-        // $com = new registrationcompany();
-        // $com->register_number=$request->register_number;
-        // $com->name=$request->name;
-        // $com->logo=$request->logo;
-        // $com->about=$request->about;
-        // $com->save();
-        // return redirect('company');
-
-    }
-
-    public function policyregistration(Request $request)
-    {
-        //     $policy = new policyregistration();
-
-        //     $policy->companyid=$request->companyid;
-        //     $policy->policyname=$request->policyname;
-        //     $policy->policytype=$request->policytype;
-        //     $policy->policydesc=$request->policydesc;
-        //     $policy->policyprice=$request->policyprice;
-        //     $policy->claimprice=$request->claimprice;
-        //     $policy->timeperiod=$request->timeperiod;
-        //     $policy->save();
-        //     return redirect('company');
-        //     return $request;
-
-
-        //   return view('Admin.policyregistration');
-
-    }
-
 
     public function adminlogin(Request $request)
     {
@@ -103,6 +64,7 @@ class AdminController extends Controller
             return redirect('/adminhome' );
         }
     }
+
     public function adminlogout()
     {
         Session::forget('user');

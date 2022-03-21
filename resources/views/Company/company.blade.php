@@ -8,7 +8,10 @@ Company
 //     var_dump($data);
 //     die;
 ?>
-<h1>Company</h1>
+<center>
+    <h1>Companies</h1>
+
+</center>
 <div class="container center">
 <a href="{{ URL('/companyregistration') }}" class="btn btn-primary center" style="margin-bottom: 20px; margin-top:20px">Add Company</a>
 <table class="table">

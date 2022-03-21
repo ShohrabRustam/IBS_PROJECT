@@ -8,7 +8,8 @@ Policy
 //     var_dump($data);
 //     die;
 ?>
-<h1>Policies</h1>
+<center><h1>Policies</h1></center>
+
 <div class="container center">
 <table class="table">
     <center><h1>{{ $company['name'] }}</h1></center>

@@ -27,6 +27,10 @@ class CompanyController extends Controller
         return redirect('adminlogin');
     }
 
+    public function companyreg(){
+        return view('Company.companyRegistration');
+    }
+
     public function companyRegistration(Request $request){
         $com = new Company();
         $com->register_number=$request->register_number;
@@ -37,6 +41,13 @@ class CompanyController extends Controller
         $com->about=$request->about;
         $com->save();
         return redirect('/company');
+    }
+
+    public function policyReg($id){
+
+    $companyid =Company::find($id);
+
+    return view('Company.policyRegistration')->with('companyid',$companyid);
     }
 
     public function addPolicy(Request $request){
@@ -51,6 +62,12 @@ class CompanyController extends Controller
         $policy->save();
         return redirect('company');
 
+    }
+
+    public function viewpolicy($id){
+        $company =  Company::where("id",$id)->first();
+        $policy =   policy::all();
+        return view('Company.viewpolicy')->with('company',$company)->with('policies',$policy);
     }
 
 }

@@ -22,7 +22,7 @@
         </tbody>
     </table>
 
-    <form action="{{ URL::to('policyRegistration') }}" method="POST">
+    <form action="{{ URL::to('policyregistration') }}" method="POST">
         @csrf
         <input type="hidden"  name="companyid" value="{{ $companyid['id'] }}">
       <div class="user-box">
