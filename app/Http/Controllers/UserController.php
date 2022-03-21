@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\policy;
 use Illuminate\Http\Request;
 use App\Models\UserRegistration;
 use Illuminate\Support\Facades\Session;
@@ -33,18 +34,23 @@ class UserController extends Controller
 
     public function  life()
     {
-        return view('InsuranceType.life');
+        $data = policy::all();
+
+        return view('InsuranceType.life')->with('data',$data);
 
     }
     public function  bike()
     {
+        $data = policy::all();
+
         return view('InsuranceType.bike');
 
     }
     public function  car()
     {
-        return view('InsuranceType.car');
+        $data = policy::all();
 
+        return view('InsuranceType.car');
     }
     public function  signup()
     {

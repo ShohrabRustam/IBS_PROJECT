@@ -5,9 +5,12 @@ Insurance
 @endsection
 
 @section('section')
-<h2>Life Insurance Page</h2>
-{{-- <div class="container center">
-    <table class="table"> --}}
+<center>
+
+    <h2>Life Insurance Page</h2>
+</center>
+<div class="container center">
+    <table class="table">
         {{-- <thead>
         <tr>
             <th>Image</th>
@@ -17,11 +20,11 @@ Insurance
             <th>Delete</th>
         </tr>
      </thead> --}}
-        {{-- <tbody>
+        <tbody>
 
             @foreach ($data as $item)
                 @if ($item['policytype'] == 'Life')
-                    <tr style="margin-bottom: 20px;background-color:white;border-buttom : 20px;border-bottom-width: 30px;">
+                    <tr style="margin-bottom: 20px;background-color:white;border-buttom : 20px;border-bottom-width: 30px; opacity:0.7;">
 
                         <td><strong>{{ $item['policyname'] }}</strong></td>
                         <td><strong>{{ $item['policydesc'] }}</strong></td>
@@ -37,7 +40,9 @@ Insurance
         </tbody>
     </table>
 </div>
- --}}
+
+
+
 
 
 @endsection
