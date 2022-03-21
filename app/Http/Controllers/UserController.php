@@ -28,16 +28,20 @@ class UserController extends Controller
 
     public function  health()
     {
-        return view('InsuranceType.health');
+        $data = policy::all();
+        if (Session::has('user') ) {
+
+        return view('InsuranceType.health')->with('data',$data);
+        }
+        return redirect('/login');
 
     }
 
     public function  life()
     {
-        if (Session::has('user') ) {
-
         $data = policy::all();
 
+        if (Session::has('user') ) {
         return view('InsuranceType.life')->with('data',$data);
         }
         return redirect('/login');
@@ -45,22 +49,19 @@ class UserController extends Controller
     }
     public function  bike()
     {
-        if (Session::has('user') ) {
-
         $data = policy::all();
 
-        return view('InsuranceType.bike');
+        if (Session::has('user') ) {
+        return view('InsuranceType.bike')->with('data',$data);
         }
         return redirect('login');
 
     }
     public function  car()
     {
-        if (Session::has('user')) {
-
         $data = policy::all();
-
-        return view('InsuranceType.car');
+        if (Session::has('user')) {
+        return view('InsuranceType.car')->with('data',$data);
         }
         return redirect('/login');
     }
@@ -125,7 +126,23 @@ class UserController extends Controller
     }
     public function logout()
     {
+        if (Session::has('user') && Session::get('user')['type']=='user') {
+
         Session::forget('user');
         return redirect('login');
+        }
+       else if (Session::has('user') && Session::get('user')['type']=='admin') {
+
+            Session::forget('user');
+            return redirect('adminlogin');
+        }
+       else if (Session::has('user') && Session::get('user')['type']=='superadmin') {
+
+            Session::forget('user');
+            return redirect('/superadminlogin');
+            }
+            else{
+                return redirect('/');
+            }
     }
 }

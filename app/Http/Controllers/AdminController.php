@@ -67,7 +67,15 @@ class AdminController extends Controller
 
     public function adminlogout()
     {
+
+        if (Session::has('user') && Session::get('user')['type']=='superadmin') {
+
+        Session::forget('user');
+        return redirect('/superadminlogin');
+        }
+        else{
         Session::forget('user');
         return redirect('adminhome');
+        }
     }
 }
