@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('super_admins', function (Blueprint $table) {
             $table->id();
+            $table->string('type')->default('superadmin');
             $table->string('name');
             $table->string('gmail');
             $table->string('password');

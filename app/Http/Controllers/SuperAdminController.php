@@ -13,7 +13,7 @@ class SuperAdminController extends Controller
     //
     public function superadminhome()
     {
-        if (Session::has('user') && Session::get('user')['gmail']=='superadmin@ibs.com') {
+        if (Session::has('user') && Session::get('user')['type']=='superadmin') {
             return view('SuperAdmin.home');
         }
         return redirect('superadminlogin');
@@ -30,7 +30,7 @@ class SuperAdminController extends Controller
 
     public function adminlist(){
         $admins = Admin::all();
-        if (Session::has('user') && Session::get('user')['gmail']=='superadmin@ibs.com') {
+        if (Session::has('user') && Session::get('user')['type']=='superadmin') {
 
             return view('SuperAdmin.adminlist')->with('admins',$admins);
         } else {
@@ -58,7 +58,7 @@ class SuperAdminController extends Controller
 
     public function adminregistration()
     {
-        if (Session::has('user') && Session::get('user')['gmail'] == 'superadmin@ibs.com') {
+        if (Session::has('user') && Session::get('user')['type'] == 'superadmin') {
          return  view('SuperAdmin.adminregistration');
         }
         return redirect('superadminlogin');
@@ -73,7 +73,7 @@ class SuperAdminController extends Controller
             "mobile"=>  "required",
             "confirm_password" => "required_with:password|same:password|min:6"
         ]);
-        if (Session::has('user') && Session::get('user')['gmail']=='superadmin@ibs.com') {
+        if (Session::has('user') && Session::get('user')['type']=='superadmin') {
         $adm = new Admin();
         $adm->name=$req->name;
         $adm->email=$req->email;

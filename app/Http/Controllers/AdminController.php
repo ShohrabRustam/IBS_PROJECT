@@ -10,7 +10,7 @@ class AdminController extends Controller
 {
     public function adminhome()
     {
-        if (Session::has('user') && strpos(Session::get('user')['email'], '@ibs.com') !== false && strpos(Session::get('user')['password'], 'admin') !== false) {
+        if (Session::has('user') &&( Session::get('user')['type']== 'admin' || Session::get('user')['type']== 'superadmin') ){
             return view('Admin.adminHome');
         }
         return redirect('adminlogin');
@@ -20,15 +20,15 @@ class AdminController extends Controller
 
     public function insurancerequest()
     {
-        if (Session::has('user') && strpos(Session::get('user')['email'], '@ibs.com') !== false && strpos(Session::get('user')['password'], 'admin') !== false) {
-                return view('Admin.insurancerequest');
+        if (Session::has('user') &&( Session::get('user')['type']== 'admin' || Session::get('user')['type']== 'superadmin') ){
+            return view('Admin.insurancerequest');
         }
         return redirect('adminlogin');
     }
 
     public function claimrequest()
     {
-        if (Session::has('user') && strpos(Session::get('user')['email'], '@ibs.com') !== false && strpos(Session::get('user')['password'], 'admin') !== false) {
+        if (Session::has('user') &&( Session::get('user')['type']== 'admin' || Session::get('user')['type']== 'superadmin') ){
             return view('Admin.claimrequest');
         }
         return redirect('adminlogin');
@@ -37,7 +37,7 @@ class AdminController extends Controller
 
 
     public function adminlog(){
-        if (Session::has('user') && strpos(Session::get('user')['email'], '@ibs.com')==true ){
+        if (Session::has('user') &&( Session::get('user')['type']== 'admin' || Session::get('user')['type']== 'superadmin') ){
             return redirect('/adminhome');
         }
         return view('Admin.adminlogin');

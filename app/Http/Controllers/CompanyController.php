@@ -21,7 +21,7 @@ class CompanyController extends Controller
         // die;
         // echo "<pre>";
         // var_dump($data);
-        if (Session::has('user') && strpos(Session::get('user')['email'], '@ibs.com') !== false && strpos(Session::get('user')['password'], 'admin') !== false) {
+        if (Session::has('user') &&( Session::get('user')['type']== 'admin' || Session::get('user')['type']== 'superadmin') ){
             return view('Company.company')->with('data', $data);
         }
         return redirect('adminlogin');
@@ -34,6 +34,8 @@ class CompanyController extends Controller
 
     public function companyRegistration(Request $request)
     {
+        if (Session::has('user') &&( Session::get('user')['type']== 'admin' || Session::get('user')['type']== 'superadmin') ){
+
         $com = new Company();
         $com->register_number = $request->register_number;
         $com->name = $request->name;
@@ -44,17 +46,24 @@ class CompanyController extends Controller
         $com->save();
         return redirect('/company');
     }
+    return redirect('/adminlogin');
+    }
 
     public function policyReg($id)
     {
+        if (Session::has('user') &&( Session::get('user')['type']== 'admin' || Session::get('user')['type']== 'superadmin') ){
 
         $companyid = Company::find($id);
 
         return view('Company.policyRegistration')->with('companyid', $companyid);
+        }
+        return redirect('adminlogin');
     }
 
     public function addPolicy(Request $request)
     {
+        if (Session::has('user') &&( Session::get('user')['type']== 'admin' || Session::get('user')['type']== 'superadmin') ){
+
         $policy = new policy();
         $policy->companyid = $request->companyid;
         $policy->policyname = $request->policyname;
@@ -65,12 +74,17 @@ class CompanyController extends Controller
         $policy->timeperiod = $request->timeperiod;
         $policy->save();
         return redirect('company');
+        }
+        return redirect('adminlogin');
     }
 
     public function viewpolicy($id)
     {
+        if (Session::has('user') &&( Session::get('user')['type']== 'admin' || Session::get('user')['type']== 'superadmin') ){
         $company =  Company::where("id", $id)->first();
         $policy =   policy::all();
         return view('Company.viewpolicy')->with('company', $company)->with('policies', $policy);
+        }
+        return redirect('/adminlogin');
     }
 }

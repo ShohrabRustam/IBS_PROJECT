@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('admin', function (Blueprint $table) {
             $table->id();
+            $table->string('type')->default('admin');
             $table->string('name')->notnull();
             $table->string('email')->unique();
             $table->string('mobile')->unique();

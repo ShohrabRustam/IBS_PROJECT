@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('UserRegistration', function (Blueprint $table) {
             $table->id();
+            $table->string('type')->default('user');
             $table->string('name')->notnull();
             $table->string('email')->unique();
             $table->string('password')->notnull();
