@@ -73,9 +73,10 @@ class AdminController extends Controller
         Session::forget('user');
         return redirect('/superadminlogin');
         }
-        else{
+        else
+        {
         Session::forget('user');
-        return redirect('adminhome');
+        return redirect('/adminlogin');
         }
     }
 }

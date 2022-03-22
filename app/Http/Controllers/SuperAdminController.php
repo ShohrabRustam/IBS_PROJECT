@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\UserRegistration;
 use App\Models\Admin;
 use Illuminate\Http\Request;
@@ -10,47 +11,49 @@ use Illuminate\Support\Facades\Session;
 
 class SuperAdminController extends Controller
 {
+
     //
     public function superadminhome()
     {
-        if (Session::has('user') && Session::get('user')['type']=='superadmin') {
+        if (Session::has('user') && Session::get('user')['type'] == 'superadmin') {
             return view('SuperAdmin.home');
         }
         return redirect('superadminlogin');
     }
 
-    public function userlist(){
-        $users=UserRegistration::all();
-        if (Session::has('user') && Session::get('user')['gmail']=='superadmin@ibs.com') {
-            return view('SuperAdmin.userlist')->with('users',$users);
+    public function userlist()
+    {
+        $users = UserRegistration::all();
+        if (Session::has('user') && Session::get('user')['gmail'] == 'superadmin@ibs.com') {
+            return view('SuperAdmin.userlist')->with('users', $users);
         } else {
             return redirect('superadminlogin');
         }
     }
 
-    public function adminlist(){
+    public function adminlist()
+    {
         $admins = Admin::all();
-        if (Session::has('user') && Session::get('user')['type']=='superadmin') {
+        if (Session::has('user') && Session::get('user')['type'] == 'superadmin') {
 
-            return view('SuperAdmin.adminlist')->with('admins',$admins);
+            return view('SuperAdmin.adminlist')->with('admins', $admins);
         } else {
             return redirect('superadminlogin');
         }
     }
-    public function superadminlogin(Request $req){
+    public function superadminlogin(Request $req)
+    {
         $req->validate([
-            'gmail'=>'required|email',
+            'gmail' => 'required|email',
             'password' => 'required|min:4|max:16'
         ]);
         // return $req;
-        $user= SuperAdmin::where(['gmail'=>$req->gmail])->first();
-        if(!$user || ($req->password!=$user->password) ){
+        $user = SuperAdmin::where(['gmail' => $req->gmail])->first();
+        if (!$user || ($req->password != $user->password)) {
             // return 'hello';
-            return back()->with("fail" ,"Email or Password is not Match");
-        }
-        else
-        {
-            $req->session()->put('user',$user);
+            return back()->with("fail", "Email or Password is not Match");
+        } else {
+            $req->session()->put('user', $user);
             return redirect('superadminhome');
         }
     }
@@ -59,33 +62,32 @@ class SuperAdminController extends Controller
     public function adminregistration()
     {
         if (Session::has('user') && Session::get('user')['type'] == 'superadmin') {
-         return  view('SuperAdmin.adminregistration');
+            return  view('SuperAdmin.adminregistration');
         }
         return redirect('superadminlogin');
     }
 
-    public function adminregistrations(Request $req){
+    public function adminregistrations(Request $req)
+    {
 
         $req->validate([
             "name" => "required|min:3",
-            "email"=>"required|email|unique:admin",
+            "email" => "required|email|unique:admin",
             "password" => "required|min:4|max:16",
-            "mobile"=>  "required",
+            "mobile" =>  "required",
             "confirm_password" => "required_with:password|same:password|min:6"
         ]);
-        if (Session::has('user') && Session::get('user')['type']=='superadmin') {
-        $adm = new Admin();
-        $adm->name=$req->name;
-        $adm->email=$req->email;
-        $adm->mobile=$req->mobile;
-        $adm->password=$req->password;
-        $adm->save();
-        return redirect('adminlogin');
-        }
-        else{
+        if (Session::has('user') && Session::get('user')['type'] == 'superadmin') {
+            $adm = new Admin();
+            $adm->name = $req->name;
+            $adm->email = $req->email;
+            $adm->mobile = $req->mobile;
+            $adm->password = $req->password;
+            $adm->save();
+            return redirect('adminlogin');
+        } else {
             return redirect('superadminlogin');
         }
-
     }
 
     public function superadminlogout()
@@ -94,5 +96,4 @@ class SuperAdminController extends Controller
         Session::forget('user');
         return redirect('superadminlogin');
     }
-
 }

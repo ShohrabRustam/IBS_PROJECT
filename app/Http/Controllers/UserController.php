@@ -29,51 +29,46 @@ class UserController extends Controller
     public function  health()
     {
         $data = policy::all();
-        if (Session::has('user') ) {
+        if (Session::has('user')) {
 
-        return view('InsuranceType.health')->with('data',$data);
+            return view('InsuranceType.health')->with('data', $data);
         }
         return redirect('/login');
-
     }
 
     public function  life()
     {
         $data = policy::all();
 
-        if (Session::has('user') ) {
-        return view('InsuranceType.life')->with('data',$data);
+        if (Session::has('user')) {
+            return view('InsuranceType.life')->with('data', $data);
         }
         return redirect('/login');
-
     }
     public function  bike()
     {
         $data = policy::all();
 
-        if (Session::has('user') ) {
-        return view('InsuranceType.bike')->with('data',$data);
+        if (Session::has('user')) {
+            return view('InsuranceType.bike')->with('data', $data);
         }
         return redirect('login');
-
     }
     public function  car()
     {
         $data = policy::all();
         if (Session::has('user')) {
-        return view('InsuranceType.car')->with('data',$data);
+            return view('InsuranceType.car')->with('data', $data);
         }
         return redirect('/login');
     }
     public function  signup()
     {
         return view('signup');
-
     }
     public function  login()
     {
         return view('login');
-
     }
 
     //
@@ -126,23 +121,20 @@ class UserController extends Controller
     }
     public function logout()
     {
-        if (Session::has('user') && Session::get('user')['type']=='user') {
+        if (Session::has('user') && Session::get('user')['type'] == 'user') {
 
-        Session::forget('user');
-        return redirect('login');
-        }
-       else if (Session::has('user') && Session::get('user')['type']=='admin') {
+            Session::forget('user');
+            return redirect('login');
+        } else if (Session::has('user') && Session::get('user')['type'] == 'admin') {
 
             Session::forget('user');
             return redirect('adminlogin');
-        }
-       else if (Session::has('user') && Session::get('user')['type']=='superadmin') {
+        } else if (Session::has('user') && Session::get('user')['type'] == 'superadmin') {
 
             Session::forget('user');
             return redirect('/superadminlogin');
-            }
-            else{
-                return redirect('/');
-            }
+        } else {
+            return redirect('/');
+        }
     }
 }
